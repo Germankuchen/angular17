@@ -8,7 +8,7 @@ import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
 })
 export class VirtualComponent implements OnInit {
 
-  @ViewChild( CdkVirtualScrollViewport) viewport: CdkVirtualScrollViewport;
+  @ViewChild(CdkVirtualScrollViewport, null) viewport: CdkVirtualScrollViewport;
 
   personas = new Array(500).fill(0);
 

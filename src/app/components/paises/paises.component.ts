@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-paises',
@@ -8,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class PaisesComponent implements OnInit {
 
-  paises: any[] = [];
+  paises: any = [];
 
   constructor(private http: HttpClient) { }
 
@@ -17,6 +18,11 @@ export class PaisesComponent implements OnInit {
       console.log(datos);
       this.paises = datos;
     });
+  }
+
+  soltar(evento: CdkDragDrop<any>) {
+    console.log(evento);
+    moveItemInArray(this.paises, evento.previousIndex, evento.currentIndex);
   }
 
 }
